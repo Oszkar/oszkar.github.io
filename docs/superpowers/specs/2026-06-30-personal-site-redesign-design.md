@@ -96,12 +96,13 @@ fonts/                     # (optional) self-hosted Hanken Grotesk woff2
 - Inline **SVG** icons for GitHub / LinkedIn (no icon fonts)
 - One small vanilla `js/main.js` (expand interaction + smooth scroll + active-nav via
   `IntersectionObserver`); the site is fully functional/readable without it
-- Hanken Grotesk via Google Fonts (`preconnect` + `display=swap`), **or** self-hosted
-  woff2 in `/fonts` for zero third-party calls (recommended for privacy/perf — decided at build)
+- Hanken Grotesk via **Google Fonts link** (`preconnect` + `display=swap`) — decided.
 
-**Analytics (recommendation, not yet decided):** remove the dead UA tag. Optionally add a
-lightweight, cookieless analytics later (e.g. Cloudflare Web Analytics — one script tag,
-no cookies, GDPR-friendly). Default if undecided: ship with **no analytics**.
+**Analytics — decided: Cloudflare Web Analytics.** Remove the dead `UA-` tag and add the
+Cloudflare beacon (`<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+data-cf-beacon='{"token":"<TOKEN>"}'></script>`). Cookieless, free, GDPR-friendly, no
+hosting change (stays on GitHub Pages). Token comes from the user's Cloudflare dashboard
+(Web Analytics → add `oszkar.me`).
 
 ## 7. Performance & quality budget
 
@@ -132,14 +133,14 @@ no cookies, GDPR-friendly). Default if undecided: ship with **no analytics**.
 
 ## 10. Open items (need user input before/within implementation)
 
-1. **Projects content** — 2–4 projects (title, outcome, role, optional link/image).
-2. **Analytics** — none (default) vs. add cookieless analytics.
-3. **Font hosting** — Google Fonts link (simplest) vs. self-hosted woff2 (recommended).
+1. **Projects content** — 2–4 projects (title, outcome, role, optional link/image). *(user will provide)*
+2. **Analytics** — **decided: Cloudflare Web Analytics.** Needs the beacon token from the user's Cloudflare dashboard. (Old dead `UA-` tag removed regardless.)
+3. ~~Font hosting~~ — **decided: Google Fonts link** (Hanken Grotesk).
 
 ## 11. Acceptance criteria
 
 - [ ] `index.html` renders the full warm-editorial design with **no** Bootstrap/jQuery/icon-fonts.
-- [ ] `vendor/`, `scss/`, old `css`/`js`, and the dead UA tag are removed.
+- [ ] `vendor/`, `scss/`, old `css`/`js`, and the dead UA tag are removed; Cloudflare Web Analytics beacon added.
 - [ ] Page is fully readable/crawlable with JavaScript disabled.
 - [ ] All SEO/OG/Twitter/structured-data metadata preserved and updated; `<title>` rebranded.
 - [ ] Experience rows expand/collapse; works by keyboard; first row open by default.
