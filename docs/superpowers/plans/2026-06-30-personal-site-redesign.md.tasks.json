@@ -1,0 +1,68 @@
+{
+  "planPath": "docs/superpowers/plans/2026-06-30-personal-site-redesign.md",
+  "lastUpdated": "2026-06-30",
+  "tasks": [
+    {
+      "id": 5,
+      "subject": "Task 1: Scaffold — head, design tokens, nav skeleton",
+      "status": "pending",
+      "description": "**Goal:** New index.html (head, nav, empty section landmarks) + css/style.css (tokens+reset+base+nav), using the Claude Design bundle as visual ground truth.\n\n**Files:** Create index.html, css/style.css, mockups/_extracted.html (temp ref)\n\n**Acceptance Criteria:** head metadata preserved + title rebranded + UA tag removed; fonts + Cloudflare beacon placeholder linked; style.css warm-editorial tokens+reset+base+nav; page loads cream with nav, console clean.\n\n**Verify:** python -m http.server 8765 → load / → cream page, nav, branded title, clean console\n\n```json:metadata\n{\"files\":[\"index.html\",\"css/style.css\",\"mockups/_extracted.html\"],\"verifyCommand\":\"python -m http.server 8765 then load /\",\"acceptanceCriteria\":[\"head metadata preserved, title rebranded, UA removed\",\"fonts + Cloudflare beacon placeholder linked\",\"tokens+reset+base+nav in style.css\",\"page loads cream with nav, console clean\"]}\n```"
+    },
+    {
+      "id": 6,
+      "subject": "Task 2: Hero section + Now pill",
+      "status": "pending",
+      "blockedBy": [5],
+      "description": "**Goal:** Hero (eyebrow, headline, bio, photo, CTA + inline-SVG social, Now pill).\n\n**Files:** Modify index.html (#hero), css/style.css\n\n**Acceptance Criteria:** headline with muted-tint second sentence; circular photo right/desktop stacked/mobile; Get in touch + GitHub/LinkedIn SVG links; Now pill; renders JS-disabled.\n\n**Verify:** render / at 1280 + 390px, compare to _extracted.html hero, JS-off check\n\n```json:metadata\n{\"files\":[\"index.html\",\"css/style.css\"],\"verifyCommand\":\"render / at 1280 and 390, JS off\",\"acceptanceCriteria\":[\"headline muted-tint second sentence\",\"circular photo responsive\",\"CTA + social SVG links work\",\"Now pill present\",\"renders JS-disabled\"]}\n```"
+    },
+    {
+      "id": 7,
+      "subject": "Task 3: Experience section (native expandable rows)",
+      "status": "pending",
+      "blockedBy": [6],
+      "description": "**Goal:** Click-to-expand experience via <details>/<summary>; works without JS, keyboard-accessible, first row open.\n\n**Files:** Modify index.html (#work), css/style.css\n\n**Acceptance Criteria:** all roles incl. grouped older ones; expand via click + keyboard; first row open + works JS-disabled; title/org/years + detail.\n\n**Verify:** click rows, keyboard-toggle, disable JS\n\n```json:metadata\n{\"files\":[\"index.html\",\"css/style.css\"],\"verifyCommand\":\"click + keyboard + JS-off\",\"acceptanceCriteria\":[\"all roles incl grouped\",\"click + keyboard toggle\",\"first row open, JS-disabled works\",\"title/org/years + detail\"]}\n```"
+    },
+    {
+      "id": 8,
+      "subject": "Task 4: Projects section (commented-out until content)",
+      "status": "pending",
+      "blockedBy": [7],
+      "description": "**Goal:** Projects markup + card styles, shipped commented-out until user supplies 2–4 real projects.\n\n**Files:** Modify index.html (#projects), css/style.css\n\n**Acceptance Criteria:** styled card-grid template in an HTML comment; responsive 1/2/3-col when populated; no empty gap when commented.\n\n**Verify:** uncomment 3 sample cards, render, re-comment\n\n```json:metadata\n{\"files\":[\"index.html\",\"css/style.css\"],\"verifyCommand\":\"uncomment sample cards, render, re-comment\",\"acceptanceCriteria\":[\"card grid as comment template\",\"responsive grid when populated\",\"no gap when commented\"]}\n```"
+    },
+    {
+      "id": 9,
+      "subject": "Task 5: Education + Off-the-clock gallery + footer CTA",
+      "status": "pending",
+      "blockedBy": [8],
+      "description": "**Goal:** Compact Education list, interests gallery, dark footer CTA with mailto.\n\n**Files:** Modify index.html (#education, #offclock, footer#contact), css/style.css\n\n**Acceptance Criteria:** 3 schools compact; interests blurb + lazy responsive gallery; dark footer with mailto + links + copyright; no web3forms form.\n\n**Verify:** render 3 blocks; grep -i web3forms index.html (none); gallery lazy-loads\n\n```json:metadata\n{\"files\":[\"index.html\",\"css/style.css\"],\"verifyCommand\":\"render blocks; grep -i web3forms\",\"acceptanceCriteria\":[\"compact education (3 schools)\",\"blurb + lazy gallery\",\"dark footer mailto+links+copyright\",\"no web3forms\"]}\n```"
+    },
+    {
+      "id": 10,
+      "subject": "Task 6: JavaScript progressive enhancement (js/main.js)",
+      "status": "pending",
+      "blockedBy": [9],
+      "description": "**Goal:** Active-nav highlighting via IntersectionObserver; site fully works without the file.\n\n**Files:** Create js/main.js\n\n**Acceptance Criteria:** nav .active updates on scroll; no errors, no library deps; site works with file removed.\n\n**Verify:** scroll, rename main.js + reload, console\n\n```json:metadata\n{\"files\":[\"js/main.js\"],\"verifyCommand\":\"scroll + delete-test + console\",\"acceptanceCriteria\":[\"active-nav on scroll\",\"no errors/deps\",\"works without file\"]}\n```"
+    },
+    {
+      "id": 11,
+      "subject": "Task 7: Optimize images",
+      "status": "pending",
+      "blockedBy": [9],
+      "description": "**Goal:** Re-encode page photos small with explicit dims; update OG image if renamed.\n\n**Files:** Modify img/* (profile, bike4, bike3, hiroshima, hong_kong); possibly index.html\n\n**Acceptance Criteria:** each referenced image < ~150KB; profile re-encoded to sized square; first-load < 300KB excl fonts.\n\n**Verify:** ls -la img/; DevTools Network total < 300KB\n\n```json:metadata\n{\"files\":[\"img/profile2a_small.png\",\"img/bike4.jpg\",\"img/bike3.jpg\",\"img/hiroshima.jpg\",\"img/hong_kong.jpg\",\"index.html\"],\"verifyCommand\":\"ls -la img/; Network < 300KB\",\"acceptanceCriteria\":[\"each image < ~150KB\",\"profile sized square\",\"first-load < 300KB\"]}\n```"
+    },
+    {
+      "id": 12,
+      "subject": "Task 8: Remove legacy stack + update README + drop mockups",
+      "status": "pending",
+      "blockedBy": [10, 11],
+      "description": "**Goal:** Delete unused legacy stack + refresh README; new site already stands alone.\n\n**Files:** Delete vendor/, scss/, css/resume.css, js/resume.js, js/resume.min.js, mockups/; modify README.md\n\n**Acceptance Criteria:** legacy dirs/files + mockups removed; no bootstrap/jquery/font-awesome/devicons/simple-line-icons/web3forms/UA- references; site still renders; README updated.\n\n**Verify:** grep -riE 'bootstrap|jquery|font-awesome|devicons|simple-line-icons|web3forms|UA-[0-9]' --include=*.html --include=*.css --include=*.js . (none); reload /\n\n```json:metadata\n{\"files\":[\"vendor/\",\"scss/\",\"css/resume.css\",\"js/resume.js\",\"js/resume.min.js\",\"mockups/\",\"README.md\"],\"verifyCommand\":\"grep -riE legacy refs (none); reload /\",\"acceptanceCriteria\":[\"legacy + mockups removed\",\"no legacy/UA/web3forms refs\",\"site renders\",\"README updated\"]}\n```"
+    },
+    {
+      "id": 13,
+      "subject": "Task 9: Final QA + insert pending content + open PR",
+      "status": "pending",
+      "blockedBy": [12],
+      "description": "**Goal:** End-to-end QA across viewports/states, fold in projects + Cloudflare token if provided, open PR.\n\n**Files:** Modify index.html (uncomment/fill Projects; replace CF_TOKEN_PLACEHOLDER)\n\n**Acceptance Criteria:** renders 390/768/1280; readable JS-disabled + rows expand; all links resolve; alt text + focus styles; first-load < 300KB; pending content folded in if provided; PR opened.\n\n**Verify:** screenshot 3 widths; JS-off; link/focus/alt checks; weight check\n\n```json:metadata\n{\"files\":[\"index.html\"],\"verifyCommand\":\"screenshot 390/768/1280; JS-off; link/focus/alt; weight<300KB\",\"acceptanceCriteria\":[\"renders 3 widths\",\"JS-disabled readable, rows expand\",\"links resolve\",\"alt + focus styles\",\"first-load < 300KB\",\"pending content folded in\",\"PR opened\"]}\n```"
+    }
+  ]
+}
