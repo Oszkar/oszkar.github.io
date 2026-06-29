@@ -11,7 +11,7 @@ Hand-built static site, no framework and no build step:
 - `js/main.js` — a few lines of vanilla JS for active-nav highlighting (progressive enhancement; the site works without it)
 - `img/` — optimized photos
 
-Deployed via GitHub Pages on the custom domain `oszkar.me` (see `CNAME`). Analytics via Cloudflare Web Analytics (cookieless).
+Deployed via GitHub Pages on the custom domain `oszkar.me`. Analytics via Cloudflare Web Analytics (cookieless).
 
 ## Local preview
 
