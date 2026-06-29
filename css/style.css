@@ -16,6 +16,7 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
 .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--accent);font-weight:700}
 .nav{position:sticky;top:0;z-index:20;background:rgba(241,232,216,.85);
+  -webkit-backdrop-filter:saturate(160%) blur(8px);
   backdrop-filter:saturate(160%) blur(8px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
 .nav .brand{font-weight:800;color:var(--ink);font-size:18px}
