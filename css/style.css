@@ -41,3 +41,15 @@ section{padding:clamp(2.5rem,7vw,5rem) 0;border-top:1px solid var(--line)}
   border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-size:15px;color:var(--body);margin-top:18px}
 .now .dot{width:8px;height:8px;border-radius:50%;background:#3f9d52;flex:none}
 @media(max-width:760px){.hero{grid-template-columns:1fr}.hero-photo{width:120px;height:120px;order:-1}}
+
+/* experience */
+.role{border-bottom:1px solid var(--line);padding:20px 0}
+.role summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;cursor:pointer;list-style:none}
+.role summary::-webkit-details-marker{display:none}
+.role summary::after{content:"+";margin-left:auto;color:var(--accent);font-weight:700;font-size:20px}
+.role[open] summary::after{content:"−"}
+.role-title{font-weight:700;color:var(--ink);font-size:1.15rem}
+.role-org{color:var(--accent-ink);font-weight:600}
+.role-when{color:var(--muted);font-size:.95rem}
+.role-detail{margin-top:14px;color:var(--body)}
+ul.role-detail{padding-left:1.1rem} ul.role-detail li{margin:6px 0}
