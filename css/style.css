@@ -1,0 +1,28 @@
+:root{
+  --bg:#f1e8d8; --surface:#f7f1e6; --dark:#2a2420;
+  --ink:#2a2521; --body:#5c5448; --muted:#8a7f6e;
+  --accent:#bc6a43; --accent-ink:#a4542f; --sand:#cbb695; --line:#e0d4bd;
+  --max:1040px; --gap:clamp(1rem,4vw,2.5rem);
+  --font:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--body);font-family:var(--font);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+h1,h2,h3{color:var(--ink);font-weight:800;line-height:1.05;letter-spacing:-.01em}
+a{color:var(--accent-ink);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:700}
+.nav{position:sticky;top:0;z-index:20;background:rgba(241,232,216,.85);
+  backdrop-filter:saturate(160%) blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.nav .brand{font-weight:800;color:var(--ink);font-size:18px}
+.nav ul{display:flex;gap:26px;list-style:none;font-size:15px}
+.nav a{color:var(--body);font-weight:600}
+.nav a:hover,.nav a.active{color:var(--accent-ink);text-decoration:none}
+@media(max-width:640px){.nav ul{display:none}}
+section{padding:clamp(2.5rem,7vw,5rem) 0;border-top:1px solid var(--line)}
+.section-label{font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:28px}
