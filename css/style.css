@@ -27,3 +27,17 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
 section{padding:clamp(2.5rem,7vw,5rem) 0;border-top:1px solid var(--line)}
 .section-label{font-size:13px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--accent);font-weight:700;margin-bottom:28px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;padding-top:clamp(3rem,8vw,6rem)}
+.hero h1{font-size:clamp(2.4rem,6vw,4rem);margin:18px 0 22px}
+.hero h1 .hl{color:var(--sand)}
+.hero-bio{font-size:clamp(1.05rem,2.5vw,1.25rem);max-width:38ch;color:var(--body)}
+.hero-photo{width:200px;height:200px;border-radius:50%;object-fit:cover;box-shadow:0 12px 40px rgba(42,36,32,.18)}
+.hero-cta{display:flex;align-items:center;gap:22px;margin-top:30px;font-weight:600}
+.btn{background:var(--accent);color:#fff;padding:12px 24px;border-radius:999px;font-weight:700}
+.btn:hover{background:var(--accent-ink);text-decoration:none}
+.now{display:inline-flex;align-items:center;gap:10px;background:var(--surface);
+  border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-size:15px;color:var(--body);margin-top:18px}
+.now .dot{width:8px;height:8px;border-radius:50%;background:#3f9d52;flex:none}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.hero-photo{width:120px;height:120px;order:-1}}
