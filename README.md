@@ -1,27 +1,25 @@
-# My resume website
+# oszkar.me
 
-This github repo contains the source of my website. See [https://oszkar.github.io/](https://oszkar.github.io/) for a live version.
+Source for my personal website, [oszkar.me](https://oszkar.me) — a single-page site about my work in robotics, autonomous driving, and developer platforms.
 
-## About
+## Stack
 
-The website is built on the Start Bootstrap library/theme. Modifications were made by me.
+Hand-built static site, no framework and no build step:
 
-Start Bootstrap is an open source library of free Bootstrap templates and themes. 
-All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
+- `index.html` — the whole page (semantic HTML, SEO/OpenGraph/JSON-LD metadata)
+- `css/style.css` — one stylesheet (CSS custom properties, no framework)
+- `js/main.js` — a few lines of vanilla JS for active-nav highlighting (progressive enhancement; the site works without it)
+- `img/` — optimized photos
 
-* https://startbootstrap.com
-* https://twitter.com/SBootstrap
+Deployed via GitHub Pages on the custom domain `oszkar.me` (see `CNAME`). Analytics via Cloudflare Web Analytics (cookieless).
 
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
+## Local preview
 
-* http://davidmiller.io
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
+```bash
+python -m http.server 8765
+# then open http://localhost:8765/
+```
 
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+## License
 
-## Copyright and License
-
-[Original Start Bootstrap - Resume](https://startbootstrap.com/template-overviews/resume/) is licensed under the [MIT](https://github.com/BlackrockDigital/startbootstrap-resume/blob/gh-pages/LICENSE) license.
-
-Modifications to the original source are also licensed under the [MIT](https://github.com/BlackrockDigital/startbootstrap-resume/blob/gh-pages/LICENSE) license.
+Code is released under the [MIT License](LICENSE).
