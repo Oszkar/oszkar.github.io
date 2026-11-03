@@ -3,7 +3,7 @@
   const links = [...document.querySelectorAll('.nav a[href^="#"]')];
   if (!links.length) return;
 
-  // Nav-targeted sections that are actually visible (skips display:none, e.g. an empty Projects).
+  // Nav-targeted sections that are actually visible (skips any hidden with display:none).
   const targets = links
     .map(a => document.getElementById(a.getAttribute('href').slice(1)))
     .filter(el => el && el.getClientRects().length);
